@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Finance AI",
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${poppins.className} antialiased`}>{children}</body>
+      <body className={`${poppins.className} dark antialiased`}>
+        <ClerkProvider>{children}</ClerkProvider>
+      </body>
     </html>
   );
 }
