@@ -8,6 +8,7 @@ import {
   TRANSACTION_CATEGORY_LABELS,
   TRANSACTION_PAYMENT_METHOD_LABELS,
 } from "@/app/_constants/transactions";
+import TransactionTypeBadge from "./type-badge";
 
 export const transactionColumns: ColumnDef<Transaction>[] = [
   {
@@ -17,7 +18,9 @@ export const transactionColumns: ColumnDef<Transaction>[] = [
   {
     accessorKey: "type",
     header: "Tipo",
-    cell: ({ row: { original: transaction } }) => transaction.type,
+    cell: ({ row: { original: transaction } }) => (
+      <TransactionTypeBadge transactionType={transaction.type} />
+    ),
   },
   {
     accessorKey: "category",
