@@ -14,31 +14,31 @@ const Navbar = () => {
         <Button className="rounded-full">FinanceAI</Button>
         <Link
           href="/"
-          className={`transition hover:text-white ${
+          className={
             pathname === "/"
               ? "font-bold text-primary hover:text-primary"
-              : "text-muted-foreground"
-          }`}
+              : "text-muted-foreground hover:text-white"
+          }
         >
           Dashboard
         </Link>
         <Link
           href="/transactions"
-          className={`transition hover:text-white ${
+          className={
             pathname === "/transactions"
               ? "font-bold text-primary hover:text-primary"
-              : "text-muted-foreground"
-          }`}
+              : "text-muted-foreground hover:text-white"
+          }
         >
           Transações
         </Link>
         <Link
           href="/subscription"
-          className={`transition hover:text-white ${
+          className={
             pathname === "/subscription"
               ? "font-bold text-primary hover:text-primary"
-              : "text-muted-foreground"
-          }`}
+              : "text-muted-foreground hover:text-white"
+          }
         >
           Assinatura
         </Link>
