@@ -6,6 +6,7 @@ import Header from "./_components/header";
 import { isMatch } from "date-fns";
 import { getDashboard } from "../_data/get-dashboard";
 import TransactionsPieChart from "./_components/transaction-pie-chart";
+import ExpensesPerCategory from "./_components/expenses-per-category";
 
 const HomePage = async ({
   searchParams: { month },
@@ -33,6 +34,9 @@ const HomePage = async ({
             <SummaryCards {...dashboard} />
             <div className="grid grid-cols-3">
               <TransactionsPieChart {...dashboard} />
+              <ExpensesPerCategory
+                expensesPerCategory={dashboard.totalExpensePerCategory}
+              />
             </div>
           </div>
         </div>
