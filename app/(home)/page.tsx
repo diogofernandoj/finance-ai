@@ -7,6 +7,7 @@ import { isMatch } from "date-fns";
 import { getDashboard } from "../_data/get-dashboard";
 import TransactionsPieChart from "./_components/transaction-pie-chart";
 import ExpensesPerCategory from "./_components/expenses-per-category";
+import LastTransactions from "./_components/last-transactions";
 
 const HomePage = async ({
   searchParams: { month },
@@ -32,13 +33,14 @@ const HomePage = async ({
         <div className="grid h-full grid-cols-[2fr,1fr] grid-rows-1 gap-6">
           <div className="flex flex-col gap-6">
             <SummaryCards {...dashboard} />
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-3 gap-6">
               <TransactionsPieChart {...dashboard} />
               <ExpensesPerCategory
                 expensesPerCategory={dashboard.totalExpensePerCategory}
               />
             </div>
           </div>
+          <LastTransactions lastTransactions={dashboard.lastTransactions} />
         </div>
       </div>
     </>
