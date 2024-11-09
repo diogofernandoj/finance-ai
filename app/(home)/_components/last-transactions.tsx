@@ -25,7 +25,9 @@ const LastTransactions = ({ lastTransactions }: LastTransactionsProps) => {
     if (transaction.type === TransactionType.DEPOSIT) {
       return "+";
     }
-    return "-";
+    if (transaction.type === TransactionType.EXPENSE) {
+      return "-";
+    }
   };
   return (
     <ScrollArea className="rounded-md border">
