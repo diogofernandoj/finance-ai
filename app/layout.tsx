@@ -20,8 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${poppins.className} dark antialiased`}>
-        <ClerkProvider>{children}</ClerkProvider>
+      <body className={`${poppins.className} dark`}>
+        <ClerkProvider>
+          <div className="flex h-full flex-col overflow-hidden">{children}</div>
+        </ClerkProvider>
       </body>
     </html>
   );
