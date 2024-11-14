@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { auth, clerkClient } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Navbar from "../_components/navbar";
 import SummaryCards from "./_components/summary-cards";
@@ -26,12 +26,16 @@ const HomePage = async ({
 
   const dashboard = await getDashboard(month);
   const canUserAdd = await canUserAddTransaction();
+  const user = await (await clerkClient()).users.getUser(userId);
 
   return (
     <>
       <Navbar />
       <div className="flex h-full flex-col space-y-6 overflow-hidden p-6">
-        <Header />
+        <Header
+          month={month}
+          hasPremiumPlan={user.publicMetadata.subscriptionPlan === "premium"}
+        />
         <div className="grid h-full grid-cols-[2fr,1fr] grid-rows-1 gap-6 overflow-hidden">
           <div className="flex flex-col gap-6 overflow-hidden">
             <SummaryCards canUserAddTransaction={canUserAdd} {...dashboard} />
