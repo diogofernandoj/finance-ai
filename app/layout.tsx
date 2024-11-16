@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 export const metadata: Metadata = {
   title: "Finance AI",
@@ -21,7 +22,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${poppins.className} dark`}>
-        <ClerkProvider>
+        <ClerkProvider
+          appearance={{
+            baseTheme: dark,
+          }}
+        >
           <div className="flex h-full flex-col overflow-hidden">{children}</div>
         </ClerkProvider>
       </body>
