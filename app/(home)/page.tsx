@@ -29,17 +29,17 @@ const HomePage = async ({
   const user = await (await clerkClient()).users.getUser(userId);
 
   return (
-    <>
+    <div className="flex flex-col pb-20">
       <Navbar />
-      <div className="flex h-full flex-col space-y-6 overflow-hidden p-6">
+      <div className="flex h-full flex-col space-y-6 p-6 lg:overflow-hidden">
         <Header
           month={month}
           hasPremiumPlan={user.publicMetadata.subscriptionPlan === "premium"}
         />
-        <div className="grid h-full grid-cols-[2fr,1fr] grid-rows-1 gap-6 overflow-hidden">
-          <div className="flex flex-col gap-6 overflow-hidden">
+        <div className="flex h-full flex-col gap-6 lg:grid lg:grid-cols-[2fr,1fr] lg:grid-rows-1 lg:overflow-hidden">
+          <div className="flex flex-col gap-6 lg:overflow-hidden">
             <SummaryCards canUserAddTransaction={canUserAdd} {...dashboard} />
-            <div className="grid h-full grid-cols-3 grid-rows-1 gap-6 overflow-hidden">
+            <div className="flex h-full flex-col gap-6 lg:grid lg:grid-cols-3 lg:grid-rows-1 lg:overflow-hidden">
               <TransactionsPieChart {...dashboard} />
               <ExpensesPerCategory
                 expensesPerCategory={dashboard.totalExpensePerCategory}
@@ -49,7 +49,7 @@ const HomePage = async ({
           <LastTransactions lastTransactions={dashboard.lastTransactions} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

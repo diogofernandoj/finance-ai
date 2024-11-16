@@ -8,7 +8,7 @@ interface HeaderProps {
 
 const Header = async ({ month, hasPremiumPlan }: HeaderProps) => {
   return (
-    <div className="flex items-center justify-between gap-6">
+    <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-center">
       <h2 className="text-xl font-bold">Dashboard</h2>
       <div className="flex items-center gap-3">
         <AiReportButton hasPremiumPlan={hasPremiumPlan} month={month} />

@@ -28,7 +28,7 @@ const SummaryCard = ({
           {title}
         </p>
       </CardHeader>
-      <CardContent className="flex justify-between">
+      <CardContent className="flex flex-col justify-between gap-2 lg:flex-row">
         <p
           className={`font-bold ${size === "small" ? "text-2xl" : "text-4xl"}`}
         >
