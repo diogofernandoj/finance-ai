@@ -4,6 +4,7 @@ import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -11,7 +12,7 @@ const Navbar = () => {
     <nav className="flex justify-between border-b border-solid px-8 py-6">
       {/* ESQUERDA */}
       <div className="flex items-center gap-10">
-        <Button className="rounded-full">FinanceAI</Button>
+        <Image src="/logo.svg" width={173} height={39} alt="Finance AI" />
         <Link
           href="/"
           className={

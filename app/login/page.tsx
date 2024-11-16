@@ -3,6 +3,7 @@ import { Button } from "../_components/ui/button";
 import { SignInButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import Image from "next/image";
 
 const LoginPage = async () => {
   const { userId } = await auth();
@@ -13,7 +14,7 @@ const LoginPage = async () => {
 
   return (
     <div className="mx-auto flex h-full max-w-[600px] flex-col justify-center gap-2">
-      <h1 className="font-bold text-primary">FinanceAI </h1>
+      <Image src="/logo.svg" width={173} height={39} alt="Finance AI" />
       <h2 className="text-2xl font-bold">Bem-vindo</h2>
       <p className="text-sm text-muted-foreground">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora alias
