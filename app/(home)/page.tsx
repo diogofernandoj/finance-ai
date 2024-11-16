@@ -29,7 +29,7 @@ const HomePage = async ({
   const user = await (await clerkClient()).users.getUser(userId);
 
   return (
-    <div className="flex flex-col pb-20">
+    <div className="flex h-full flex-col pb-20 lg:overflow-hidden lg:pb-0">
       <Navbar />
       <div className="flex h-full flex-col space-y-6 p-6 lg:overflow-hidden">
         <Header
